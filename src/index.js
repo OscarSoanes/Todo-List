@@ -1,9 +1,8 @@
 import './style.css';
 import './reset.css';
 import {switchButton} from './modules/app/switchAddProjectBtn.js';
-
-import Project from './modules/project.js';
-import Todo from './modules/todo.js';
+import {createProject} from './modules/app/createProject.js';
+import { validateProject } from './modules/app/projectValidator';
 
 let projects = [];
 
@@ -11,10 +10,15 @@ const addProjectEl = document.querySelector("#project-container");
 addProjectEl.addEventListener(("click"), () => switchButton())
 
 const projectSaveEl = document.getElementById("project-save")
-projectSaveEl.addEventListener(("click"), () => {})
+projectSaveEl.addEventListener(("click"), () => {
+    const newProject = createProject();
+    if (validateProject(newProject, projects)) {
+        projects.push(newProject);
+        switchButton();
+    } else {
+        alert("Projects must have unique names!");
+    }
+})
 
 const projectCancelEl = document.getElementById("project-cancel");
-projectCancelEl.addEventListener("click", () => {
-    console.log("test");
-    switchButton()
-});
+projectCancelEl.addEventListener("click", () => {switchButton()});
