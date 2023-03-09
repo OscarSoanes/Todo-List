@@ -1,37 +1,37 @@
 export default class Project {
-    constructor(name) {
-        this.todos = [];
-        this.name = name;
-    }
+  constructor(name) {
+    this.todos = [];
+    this.name = name;
+  }
 
-    newTodo(todo) {
-        if (this.validateTodo(todo.title)) {
-            this.todos.push(todo);
-        } else {
-            // TODO
-            console.error("Todo cannot be the same name!")
-        }
+  newTodo(todo) {
+    if (this.validateTodo(todo.title)) {
+      this.todos.push(todo);
+    } else {
+      // TODO
+      console.error("Todo cannot be the same name!");
     }
+  }
 
-    removeTodo(title) {
-        const filtedTodos = this.todos.filter(todo => {
-            return todo.title !== title;
-        })
+  removeTodo(title) {
+    const filtedTodos = this.todos.filter((todo) => {
+      return todo.title !== title;
+    });
 
-        this.todos = filtedTodos;
-    }
+    this.todos = filtedTodos;
+  }
 
-    validateTodo(title) {
-        let result = true;
-        this.todos.forEach(todo => {
-            if (todo.title === title) {
-                result = false;
-            }
-        });
-        return result;
-    }
+  validateTodo(title) {
+    let result = true;
+    this.todos.forEach((todo) => {
+      if (todo.title === title) {
+        result = false;
+      }
+    });
+    return result;
+  }
 
-    get allTodos() {
-        return this.todos;
-    }
+  get allTodos() {
+    return this.todos;
+  }
 }
