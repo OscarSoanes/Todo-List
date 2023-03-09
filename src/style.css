@@ -2,18 +2,37 @@
 
 :root {
     font-family: Nunito, sans-serif;
-    --base: #2C3333;
-    --header: #2E4F4F;
-    --hover-small: #0E8388;
-    --text: #CBE4DE;
+    --base: #f1f1f1;
+    --aside: #a1a1a1;
+    --header: #323232;
+    --text: #131313;
 }
 
 body {
     background-color: var(--base);
     color: var(--text);
+    display: grid;
+    grid-template-columns: 200px 3fr;
+    grid-template-rows: max-content 1fr min-content;
 }
 
 img > path{
     stroke: var(--text)
+}
+
+header {
+    color: var(--base);
+    grid-column: span 2;
+    display: flex !important;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    background-color: var(--header);
+    padding: 1rem 1rem !important;
+}
+
+footer {
+    grid-column: span 2;
 }
 
