@@ -16,7 +16,7 @@ body {
     background-color: var(--base);
     color: var(--text);
     display: grid;
-    grid-template-columns: 250px 3fr;
+    grid-template-columns: minmax(250px, max-content) 3fr;
     grid-template-rows: max-content 1fr min-content;
 }
 
@@ -73,6 +73,10 @@ aside > section {
     backdrop-filter: brightness(0.85);
 }
 
+.menu-option:hover > .close-project {
+    visibility: visible;
+}
+
 footer {
     grid-column: span 2;
     background-color: var(--header);
@@ -93,3 +97,13 @@ footer > a > img:hover {
     opacity: 0.85;
 }
 
+.close-project {
+    visibility: hidden;
+}
+
+img.close-project {
+    width: 1rem;
+    background-color: var(--text);
+    border-radius: 1rem;
+    padding: 0.1rem;
+}
