@@ -5,7 +5,12 @@ export default class Project {
     }
 
     newTodo(todo) {
-        this.todos.push(todo);
+        if (this.validateTodo(todo.title)) {
+            this.todos.push(todo);
+        } else {
+            // TODO
+            console.error("Todo cannot be the same name!")
+        }
     }
 
     removeTodo(title) {
@@ -16,6 +21,15 @@ export default class Project {
         this.todos = filtedTodos;
     }
 
+    validateTodo(title) {
+        let result = true;
+        this.todos.forEach(todo => {
+            if (todo.title === title) {
+                result = false;
+            }
+        });
+        return result;
+    }
 
     get allTodos() {
         return this.todos;
