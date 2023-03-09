@@ -14,10 +14,9 @@ ProjectTest.newTodo(newTodo);
 ProjectTest.newTodo(newTodo);
 ProjectTest.newTodo(newTodo);
 
-let NextProject = new Project("more testing");
-NextProject.newTodo(newTodo);
-NextProject.newTodo(newTodo);
-
-projects.push(NextProject);
+let badTodo = new Todo("bad", "bad", "2019-20-12", "low");
+ProjectTest.newTodo(badTodo);
 console.log(ProjectTest);
-console.log(projects);
+
+ProjectTest.removeTodo("bad");
+console.log(ProjectTest);

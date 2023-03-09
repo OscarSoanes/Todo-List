@@ -8,6 +8,15 @@ export default class Project {
         this.todos.push(todo);
     }
 
+    removeTodo(title) {
+        const filtedTodos = this.todos.filter(todo => {
+            return todo.title !== title;
+        })
+
+        this.todos = filtedTodos;
+    }
+
+
     get allTodos() {
         return this.todos;
     }
