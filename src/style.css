@@ -51,7 +51,7 @@ aside > section {
     gap: 0.5rem;
 }
 
-#projects > h2 {
+section > h2 {
     font-size: 1.25rem;
     font-weight: 700;
 }
