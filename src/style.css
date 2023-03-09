@@ -45,7 +45,7 @@ aside {
     margin-bottom: 2rem;
 }
 
-aside > section {
+aside > section, #projects {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

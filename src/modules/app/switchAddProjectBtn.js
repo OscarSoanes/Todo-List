@@ -1,5 +1,3 @@
-// import {} from './createProject.js'
-
 export function switchButton() {
     const projectContainer = document.querySelector("#project-container");
     const addProjectContainter = document.querySelector("#add-project-container");
