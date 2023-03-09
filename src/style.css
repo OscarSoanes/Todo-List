@@ -1,3 +1,19 @@
-.Hello {
-    background-color: red;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+:root {
+    font-family: Nunito, sans-serif;
+    --base: #2C3333;
+    --header: #2E4F4F;
+    --hover-small: #0E8388;
+    --text: #CBE4DE;
 }
+
+body {
+    background-color: var(--base);
+    color: var(--text);
+}
+
+img > path{
+    stroke: var(--text)
+}
+
