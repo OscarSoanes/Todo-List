@@ -2,6 +2,9 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
+  output: {
+    assetModuleFilename: 'images/[hash][ext][query]',
+  },
   module: {
     rules: [
       {
