@@ -1,0 +1,1 @@
+const addProjectButton = document.querySelector("#add-project");

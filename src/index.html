@@ -35,9 +35,17 @@
                 <img src="./images/close_FILL0_wght400_GRAD0_opsz48.svg" alt="Delete Project" class="close-project">
 
             </div>
-            <div class="menu-option">
-                <img src="./images/add_task_FILL0_wght400_GRAD0_opsz48.svg" alt="Add Task"></img>
-                <p>Add Project</p>
+            <div id="add-project">
+                <div id="project-container">
+                    <img src="./images/add_task_FILL0_wght400_GRAD0_opsz48.svg" alt="Add Task"></img>
+                    <p>Add Project</p>
+                </div>
+
+                <div id="add-project-container" class="invisible">
+                    <input type="text" placeholder="title" required>
+                    <button id="project-save">Save</button>
+                    <button id="project-cancel">Cancel</button>
+                </div>
             </div>
         </section>
     </aside>

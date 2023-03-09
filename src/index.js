@@ -1,19 +1,20 @@
 import './style.css';
 import './reset.css';
+import {switchButton} from './modules/app/switchAddProjectBtn.js';
 
 import Project from './modules/project.js';
 import Todo from './modules/todo.js';
 
 let projects = [];
 
-let ProjectTest = new Project("test");
-projects.push(ProjectTest);
-let newTodo = new Todo("test", "testDesc", "10-12-13", "high");
+const addProjectEl = document.querySelector("#project-container");
+addProjectEl.addEventListener(("click"), () => switchButton())
 
-ProjectTest.newTodo(newTodo);
+const projectSaveEl = document.getElementById("project-save")
+projectSaveEl.addEventListener(("click"), () => {})
 
-let badTodo = new Todo("bad", "bad", "2019-20-12", "low");
-ProjectTest.newTodo(badTodo);
-
-ProjectTest.newTodo(newTodo);
-console.log(ProjectTest);
+const projectCancelEl = document.getElementById("project-cancel");
+projectCancelEl.addEventListener("click", () => {
+    console.log("test");
+    switchButton()
+});
