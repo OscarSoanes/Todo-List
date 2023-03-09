@@ -6,6 +6,7 @@ import { validateProject } from './modules/app/projectValidator';
 import { updateSidebar } from './modules/app/updateProjectsSideBar';
 
 let projects = [];
+updateSidebar();
 
 const addProjectEl = document.querySelector("#project-container");
 addProjectEl.addEventListener(("click"), () => switchButton())
