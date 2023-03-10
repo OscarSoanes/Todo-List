@@ -98,6 +98,12 @@ saveTaskEl.addEventListener("click", (e) => {
 const tasksContainer = document.querySelector(".task-container");
 tasksContainer.addEventListener("click", (e) => {
   if (e.target.alt === "Edit Task") {
+    const openedForms = document.querySelector(".edit-task-container");
+    if (openedForms !== null) {
+      alert("Please close the current edit form before opening another!");
+      return;
+    }
+
     resetAndEmptyTodo();
 
     setAsForm(
@@ -135,3 +141,5 @@ tasksContainer.addEventListener("click", (e) => {
     loadMain(projects, projectName);
   }
 });
+
+// update checked..... FUCK MY LIFE.
