@@ -1,10 +1,7 @@
 export function switchAddTask() {
   const addTaskButton = document.querySelector("#add-task-button");
   const addTaskContainer = document.querySelector("#add-task-container");
-  const invisibleElement = document.querySelectorAll(".invisible-task");
-
-  console.log(addTaskButton);
-  console.log(addTaskContainer);
+  const invisibleElement = document.querySelector(".invisible-task");
 
   if (addTaskButton === invisibleElement) {
     addTaskButton.classList.remove("invisible-task");

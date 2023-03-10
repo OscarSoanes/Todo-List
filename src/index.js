@@ -47,3 +47,8 @@ const addTaskEl = document.querySelector("#add-task-button");
 addTaskEl.addEventListener("click", () => {
   switchAddTask();
 });
+
+const taskCancelEl = document.querySelector("#cancel");
+taskCancelEl.addEventListener("click", () => {
+  switchAddTask();
+});
