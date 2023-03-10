@@ -61,6 +61,8 @@ asideEl.addEventListener("click", (e) => {
 // Switches the Add Task menu from button to form
 const addTaskEl = document.querySelector("#add-task-button");
 addTaskEl.addEventListener("click", () => {
+  const name = document.querySelector("#task-heading");
+  loadMain(projects, name.textContent);
   switchAddTask();
 });
 
@@ -95,6 +97,7 @@ saveTaskEl.addEventListener("click", (e) => {
 const tasksContainer = document.querySelector(".task-container");
 tasksContainer.addEventListener("click", (e) => {
   if (e.target.alt === "Edit Task") {
+    resetAndEmptyTodo();
     setAsForm(
       projects,
       e.target.parentElement.getAttribute("index"),
@@ -117,5 +120,6 @@ tasksContainer.addEventListener("click", (e) => {
     if (!form.reportValidity()) {
       return;
     }
+    updateTodo();
   }
 });
