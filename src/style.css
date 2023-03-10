@@ -16,12 +16,8 @@ body {
     background-color: var(--base);
     color: var(--text);
     display: grid;
-    grid-template-columns: minmax(250px, max-content) 3fr;
+    grid-template-columns: 270px 3fr;
     grid-template-rows: max-content 1fr min-content;
-}
-
-img > path{
-    stroke: var(--text)
 }
 
 header {
@@ -143,4 +139,50 @@ img.close-project {
 
 #project-cancel {
     background-color: #b56969;
+}
+
+#task-heading {
+    margin-bottom: 1rem;
+}
+
+main {
+    margin: 1rem 4rem;
+}
+
+.task-element {
+    padding: 0.5rem;
+    display: grid;
+    gap: .5rem;
+    align-items:self-start;
+    grid-template-columns: max-content 1fr repeat(3, max-content);
+    margin-bottom: 1rem;
+}
+
+.checkbox {
+    align-self: self-start;
+    grid-row: span 2;
+}
+
+.low {
+    background: linear-gradient(to right, #6eb569,#6eb569 4px, white 4px);
+}
+
+.medium {
+    background: linear-gradient(to right, #b59369,#b59369 4px, white 4px);
+}
+
+.high {
+    background: linear-gradient(to right, #b56969,#b56969 4px, white 4px);
+}
+
+.task-title {
+    font-weight: 700;
+}
+
+.task-element > img {
+    width: 1rem;
+}
+
+.task-element > img:first-of-type {
+    margin: 0 1rem;
 }
