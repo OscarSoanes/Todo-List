@@ -81,24 +81,25 @@
                 </div>
             </div>
 
-
-            <div id="add-task-button">
-                <img src="./images/addtask.svg" alt="Add Task">
-                <p>Add Task</p>
+            <div id="addButton" class="invisible">
+                <div id="add-task-button">
+                    <img src="./images/addtask.svg" alt="Add Task">
+                    <p>Add Task</p>
+                </div>
+                <form id="add-task-container" class="invisible-task">
+                    <input type="checkbox" class="checkbox" disabled>
+                    <input type="text" id="text" placeholder="title" required>
+                    <input type="date" id="date" placeholder="test" required>
+                    <select id="selected">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <input type="text" id="desc" placeholder="description">
+                    <button id="save">Save</button>
+                    <button id="cancel">Cancel</button>
+                </form>
             </div>
-            <form id="add-task-container" class="invisible-task">
-                <input type="checkbox" class="checkbox" disabled>
-                <input type="text" id="text" placeholder="title" required>
-                <input type="date" id="date" placeholder="test" required>
-                <select id="selected">
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                </select>
-                <input type="text" id="desc" placeholder="description">
-                <button id="save">Save</button>
-                <button id="cancel">Cancel</button>
-            </form>
 
         </section>
     </main>

@@ -9,6 +9,10 @@ import { switchAddTask } from "./modules/app/switchTaskButton.js";
 import { loadMain } from "./modules/app/loadMain.js";
 import { saveTodo } from "./modules/app/saveTodo.js";
 import { resetAndEmptyTodo } from "./modules/app/refactorTodo.js";
+import {
+  hideAddTaskButton,
+  showAddTaskButton,
+} from "./modules/app/updateAddTaskButton";
 
 let projects = [];
 
@@ -40,9 +44,11 @@ asideEl.addEventListener("click", (e) => {
     setAsSelected(element);
     resetAndEmptyTodo();
     if (element.childNodes.length === 5) {
+      hideAddTaskButton();
       loadMain(projects, element.childNodes[3].textContent);
     } else {
       loadMain(projects, element.childNodes[1].textContent);
+      showAddTaskButton();
     }
   }
 });
