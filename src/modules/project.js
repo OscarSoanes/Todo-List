@@ -14,8 +14,7 @@ export default class Project {
   }
 
   removeTodo(index) {
-    const newtodo = this.todos.splice(index, 1);
-    this.todos = newtodo;
+    this.todos.splice(index, 1);
   }
 
   validateTodo(title) {

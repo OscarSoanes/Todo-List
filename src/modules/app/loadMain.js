@@ -10,3 +10,5 @@ export function loadMain(projects, name) {
 
   loadTasks(filteredProjects);
 }
+
+export function getMain(projects, name) {}

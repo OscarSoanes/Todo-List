@@ -7,10 +7,13 @@ export function loadTasks(project) {
   const tasksContainer = document.querySelector(".task-container");
   empty(tasksContainer);
 
+  let index = 0;
+
   project.todos.forEach((todo) => {
     const taskContainer = document.createElement("div");
     taskContainer.classList.add("task-element");
     taskContainer.classList.add(todo.priority);
+    taskContainer.setAttribute("index", index);
 
     const completed = document.createElement("input");
     completed.type = "checkbox";
@@ -37,5 +40,6 @@ export function loadTasks(project) {
 
     taskContainer.append(completed, title, date, editImg, deleteTask, desc);
     tasksContainer.appendChild(taskContainer);
+    index++;
   });
 }

@@ -6,13 +6,14 @@ import { validateProject } from "./modules/app/projectValidator.js";
 import { updateSidebar } from "./modules/app/updateProjectsSideBar.js";
 import { setAsSelected } from "./modules/app/setAsSelected.js";
 import { switchAddTask } from "./modules/app/switchTaskButton.js";
-import { loadMain } from "./modules/app/loadMain.js";
+import { loadMain, getMain } from "./modules/app/loadMain.js";
 import { saveTodo } from "./modules/app/saveTodo.js";
 import { resetAndEmptyTodo } from "./modules/app/refactorTodo.js";
 import {
   hideAddTaskButton,
   showAddTaskButton,
 } from "./modules/app/updateAddTaskButton";
+import { deleteTask } from "./modules/app/deleteTask";
 
 let projects = [];
 
@@ -45,7 +46,7 @@ asideEl.addEventListener("click", (e) => {
     resetAndEmptyTodo();
     if (element.childNodes.length === 5) {
       hideAddTaskButton();
-      loadMain(projects, element.childNodes[3].textContent);
+      getMain(projects, element.childNodes[3].textContent);
     } else {
       loadMain(projects, element.childNodes[1].textContent);
       showAddTaskButton();
@@ -69,7 +70,7 @@ saveTaskEl.addEventListener("click", (e) => {
   e.preventDefault();
   const form = document.querySelector("#add-task-container");
   form.checkValidity();
-  if (form.reportValidity()) {
+  if (!form.reportValidity()) {
     return;
   }
 
@@ -81,4 +82,15 @@ saveTaskEl.addEventListener("click", (e) => {
   switchAddTask();
   const name = document.querySelector("#task-heading");
   loadMain(projects, name.textContent);
+});
+
+const tasksContainer = document.querySelector(".task-container");
+tasksContainer.addEventListener("click", (e) => {
+  if (e.target.alt === "Edit Task") {
+    // edit task
+  } else if (e.target.alt === "Delete Task") {
+    const projectName = document.querySelector("#task-heading").textContent;
+    deleteTask(projects, e.target.parentElement.getAttribute("index"));
+    loadMain(projects, projectName);
+  }
 });
