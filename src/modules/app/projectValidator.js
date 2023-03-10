@@ -2,11 +2,12 @@ export function validateProject(projectToAdd, projectList) {
   let result = true;
 
   const bannedProjectNames = ["inbox", "today", "this week"];
+  if (bannedProjectNames.includes(projectToAdd.name)) {
+    return false;
+  }
+
   projectList.forEach((project) => {
-    if (
-      project.name.toLowercase === projectToAdd.name.toLowercase &&
-      !bannedProjectNames.includes(projectToAdd.toLowercase)
-    ) {
+    if (project.name === projectToAdd.name) {
       result = false;
     }
   });

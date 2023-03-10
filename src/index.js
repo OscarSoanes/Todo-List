@@ -5,6 +5,7 @@ import { createProject } from "./modules/app/createProject.js";
 import { validateProject } from "./modules/app/projectValidator.js";
 import { updateSidebar } from "./modules/app/updateProjectsSideBar.js";
 import { setAsSelected } from "./modules/app/setAsSelected.js";
+import { switchAddTask } from "./modules/app/switchTaskButton.js";
 
 let projects = [];
 
@@ -31,8 +32,18 @@ projectCancelEl.addEventListener("click", () => {
 // Looks at everything on the Aside element, includes the Projects menu
 let asideEl = document.querySelector("aside");
 asideEl.addEventListener("click", (e) => {
-  if (e.target.closest(".menu-option") !== null) {
-    console.log("click");
-    setAsSelected(e.target.closest(".menu-option"));
+  const element = e.target.closest(".menu-option");
+  if (element !== null) {
+    setAsSelected(element);
+    if (element.childNodes.length === 5) {
+      console.log("heading");
+    } else {
+      console.log("not heading");
+    }
   }
+});
+
+const addTaskEl = document.querySelector("#add-task-button");
+addTaskEl.addEventListener("click", () => {
+  switchAddTask();
 });

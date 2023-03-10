@@ -110,7 +110,7 @@ img.close-project {
     padding: 0.1rem;
 }
 
-.invisible {
+.invisible, .invisible-task {
     display: none !important;
 }
 
@@ -151,7 +151,7 @@ main {
     margin: 1rem 4rem;
 }
 
-.task-element {
+.task-element, #add-task-container {
     padding: 0.5rem;
     display: grid;
     gap: .5rem;
@@ -183,15 +183,61 @@ main {
     font-weight: 700;
 }
 
-.task-element > img {
+.task-element > img, #add-task-container > img {
     cursor: pointer;    
     width: 1rem;
 }
 
-.task-element > img:first-of-type {
+.task-element > img:first-of-type, #add-task-container > img:first-of-type {
     margin: 0 1rem;
 }
 
 .task-element > p:last-of-type {
     grid-column: span 4;
+}
+
+#desc {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#save {
+    grid-column: span 2;
+}
+
+#cancel {
+    grid-column: 4 / 6;
+}
+
+#selected {
+    grid-column: span 2;
+}
+
+#add-task-container, #add-task-button {
+    background: linear-gradient(to right, #69adb5,#69adb5 4px, white 4px);
+}
+
+#add-task-container > input, #add-task-container > select, #add-task-container > button {
+    border: 1px solid black;
+}
+
+#add-task-button {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    width: max-content;
+    background-color: #fff;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#add-task-button:hover {
+    background: linear-gradient(to right, #69adb5,#69adb5 4px, var(--aside) 4px);
+}
+
+#add-task-button > img {
+    width: 1.5rem;
 }
