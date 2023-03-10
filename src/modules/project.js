@@ -13,12 +13,9 @@ export default class Project {
     }
   }
 
-  removeTodo(title) {
-    const filtedTodos = this.todos.filter((todo) => {
-      return todo.title !== title;
-    });
-
-    this.todos = filtedTodos;
+  removeTodo(index) {
+    const newtodo = this.todos.splice(index, 1);
+    this.todos = newtodo;
   }
 
   validateTodo(title) {
