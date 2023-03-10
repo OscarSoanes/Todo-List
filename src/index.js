@@ -14,6 +14,7 @@ import {
   showAddTaskButton,
 } from "./modules/app/updateAddTaskButton";
 import { deleteTask } from "./modules/app/deleteTask";
+import { setAsForm } from "./modules/app/switchTaskEditorMode";
 
 let projects = [];
 
@@ -87,7 +88,11 @@ saveTaskEl.addEventListener("click", (e) => {
 const tasksContainer = document.querySelector(".task-container");
 tasksContainer.addEventListener("click", (e) => {
   if (e.target.alt === "Edit Task") {
-    // edit task
+    setAsForm(
+      projects,
+      e.target.parentElement.getAttribute("index"),
+      e.target.closest(".task-element")
+    );
   } else if (e.target.alt === "Delete Task") {
     const projectName = document.querySelector("#task-heading").textContent;
     deleteTask(projects, e.target.parentElement.getAttribute("index"));
