@@ -32,6 +32,7 @@ projectCancelEl.addEventListener("click", () => {
 let asideEl = document.querySelector("aside");
 asideEl.addEventListener("click", (e) => {
   if (e.target.closest(".menu-option") !== null) {
+    console.log("click");
     setAsSelected(e.target.closest(".menu-option"));
   }
 });

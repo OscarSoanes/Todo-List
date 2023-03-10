@@ -4,11 +4,17 @@ import Delete from "../../images/delete.svg";
 
 export function updateSidebar(projectsList) {
   const projectsContainer = document.querySelector("#projects");
+  const getSelectedProjectText = document.querySelector(".selected").innerText;
+
   empty(projectsContainer);
 
   projectsList.forEach((project) => {
     const projectContainer = document.createElement("div");
     projectContainer.classList.add("menu-option");
+
+    if (getSelectedProjectText === project.name) {
+      projectContainer.classList.add("selected");
+    }
 
     const checkIcon = document.createElement("img");
     checkIcon.src = CheckList;
