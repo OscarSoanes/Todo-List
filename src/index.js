@@ -16,6 +16,7 @@ import {
 import { deleteTask } from "./modules/app/deleteTask";
 import { setAsForm } from "./modules/app/switchTaskEditorMode";
 import { updateTodo } from "./modules/app/editTask";
+import { updateCompleted } from "./modules/app/updateCompleted";
 
 let projects = [];
 
@@ -116,11 +117,13 @@ tasksContainer.addEventListener("click", (e) => {
     deleteTask(projects, e.target.parentElement.getAttribute("index"));
     loadMain(projects, projectName);
   }
+
   if (e.target.className === "edit-cancel") {
     e.preventDefault();
     const name = document.querySelector("#task-heading");
     loadMain(projects, name.textContent);
   }
+
   if (e.target.className === "edit-save") {
     e.preventDefault();
     const form = document.querySelector(".edit-task-container");
@@ -140,6 +143,12 @@ tasksContainer.addEventListener("click", (e) => {
     const projectName = document.querySelector("#task-heading").textContent;
     loadMain(projects, projectName);
   }
-});
 
-// update checked..... FUCK MY LIFE.
+  if (e.target.className === "checkbox") {
+    updateCompleted(
+      e.target.parentElement.getAttribute("index"),
+      projects,
+      e.target.checked
+    );
+  }
+});
