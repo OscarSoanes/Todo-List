@@ -7,6 +7,8 @@ import { updateSidebar } from "./modules/app/updateProjectsSideBar.js";
 import { setAsSelected } from "./modules/app/setAsSelected.js";
 import { switchAddTask } from "./modules/app/switchTaskButton.js";
 import { loadMain } from "./modules/app/loadMain.js";
+import { saveTodo } from "./modules/app/saveTodo.js";
+import { resetAndEmptyTodo } from "./modules/app/refactorTodo.js";
 
 let projects = [];
 
@@ -36,6 +38,7 @@ asideEl.addEventListener("click", (e) => {
   const element = e.target.closest(".menu-option");
   if (element !== null) {
     setAsSelected(element);
+    resetAndEmptyTodo();
     if (element.childNodes.length === 5) {
       loadMain(projects, element.childNodes[3].textContent);
     } else {
@@ -50,6 +53,26 @@ addTaskEl.addEventListener("click", () => {
 });
 
 const taskCancelEl = document.querySelector("#cancel");
-taskCancelEl.addEventListener("click", () => {
+taskCancelEl.addEventListener("click", (e) => {
+  e.preventDefault();
   switchAddTask();
+});
+
+const saveTaskEl = document.querySelector("#save");
+saveTaskEl.addEventListener("click", (e) => {
+  e.preventDefault();
+  const form = document.querySelector("#add-task-container");
+  form.checkValidity();
+  if (form.reportValidity()) {
+    return;
+  }
+
+  let message = saveTodo(projects);
+  if (message === "Error") {
+    alert("Todos must not have the same name!");
+    return;
+  }
+  switchAddTask();
+  const name = document.querySelector("#task-heading");
+  loadMain(projects, name.textContent);
 });

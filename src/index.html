@@ -86,10 +86,10 @@
                 <img src="./images/addtask.svg" alt="Add Task">
                 <p>Add Task</p>
             </div>
-            <div id="add-task-container" class="invisible-task">
+            <form id="add-task-container" class="invisible-task">
                 <input type="checkbox" class="checkbox" disabled>
-                <input type="text" id="text" placeholder="title">
-                <input type="date" id="date" placeholder="test">
+                <input type="text" id="text" placeholder="title" required>
+                <input type="date" id="date" placeholder="test" required>
                 <select id="selected">
                     <option value="high">High</option>
                     <option value="medium">Medium</option>
@@ -98,7 +98,7 @@
                 <input type="text" id="desc" placeholder="description">
                 <button id="save">Save</button>
                 <button id="cancel">Cancel</button>
-            </div>
+            </form>
 
         </section>
     </main>
