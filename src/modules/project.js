@@ -31,6 +31,14 @@ export default class Project {
     return result;
   }
 
+  updateTodo(index, todo) {
+    this.todos[index] = todo;
+  }
+
+  switchCompleted(index, todo) {
+    this.todos[index].completed = todo.completed;
+  }
+
   get allTodos() {
     return this.todos;
   }
