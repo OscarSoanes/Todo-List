@@ -8,6 +8,5 @@ export function loadMain(projects, name) {
     return project.name === name;
   });
 
-  console.log(filteredProjects);
-  // loadTasks(projects);
+  loadTasks(filteredProjects);
 }
