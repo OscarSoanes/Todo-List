@@ -6,6 +6,7 @@ import { validateProject } from "./modules/app/projectValidator.js";
 import { updateSidebar } from "./modules/app/updateProjectsSideBar.js";
 import { setAsSelected } from "./modules/app/setAsSelected.js";
 import { switchAddTask } from "./modules/app/switchTaskButton.js";
+import { loadMain } from "./modules/app/loadMain.js";
 
 let projects = [];
 
@@ -36,9 +37,9 @@ asideEl.addEventListener("click", (e) => {
   if (element !== null) {
     setAsSelected(element);
     if (element.childNodes.length === 5) {
-      console.log("heading");
+      loadMain(projects, element.childNodes[3].textContent);
     } else {
-      console.log("not heading");
+      loadMain(projects, element.childNodes[1].textContent);
     }
   }
 });
