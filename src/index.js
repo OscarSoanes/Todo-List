@@ -15,6 +15,7 @@ import {
 } from "./modules/app/updateAddTaskButton";
 import { deleteTask } from "./modules/app/deleteTask";
 import { setAsForm } from "./modules/app/switchTaskEditorMode";
+import { updateTodo } from "./modules/app/editTask";
 
 let projects = [];
 
@@ -98,6 +99,7 @@ const tasksContainer = document.querySelector(".task-container");
 tasksContainer.addEventListener("click", (e) => {
   if (e.target.alt === "Edit Task") {
     resetAndEmptyTodo();
+
     setAsForm(
       projects,
       e.target.parentElement.getAttribute("index"),
@@ -120,6 +122,16 @@ tasksContainer.addEventListener("click", (e) => {
     if (!form.reportValidity()) {
       return;
     }
-    updateTodo();
+    const msg = updateTodo(
+      e.target.closest(".task-element").getAttribute("index"),
+      projects
+    );
+
+    if (msg === "Error") {
+      alert("Todos must not have the same name!");
+      return;
+    }
+    const projectName = document.querySelector("#task-heading").textContent;
+    loadMain(projects, projectName);
   }
 });

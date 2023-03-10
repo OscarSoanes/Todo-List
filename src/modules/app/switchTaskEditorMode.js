@@ -14,7 +14,7 @@ export function setAsForm(projects, index, parent) {
   checkbox.classList.add("checkbox");
   checkbox.type = "checkbox";
   checkbox.checked = task.completed;
-  checkbox.disabled;
+  checkbox.disabled = true;
 
   const title = document.createElement("input");
   title.type = "text";
