@@ -110,4 +110,12 @@ tasksContainer.addEventListener("click", (e) => {
     const name = document.querySelector("#task-heading");
     loadMain(projects, name.textContent);
   }
+  if (e.target.className === "edit-save") {
+    e.preventDefault();
+    const form = document.querySelector(".edit-task-container");
+    form.checkValidity();
+    if (!form.reportValidity()) {
+      return;
+    }
+  }
 });

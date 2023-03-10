@@ -21,12 +21,12 @@ export function setAsForm(projects, index, parent) {
   title.setAttribute("id", "text");
   title.placeholder = "title";
   title.value = task.title;
-  title.required;
+  title.required = true;
 
   const date = document.createElement("input");
   date.type = "date";
   date.setAttribute("id", "date");
-  date.required;
+  date.required = true;
   date.value = task.date;
 
   const select = document.createElement("select");
