@@ -18,9 +18,11 @@ import { setAsForm } from "./modules/app/switchTaskEditorMode";
 
 let projects = [];
 
+// Switches the add project button
 const addProjectEl = document.querySelector("#project-container");
 addProjectEl.addEventListener("click", () => switchButton());
 
+// Saves new project
 const projectSaveEl = document.getElementById("project-save");
 projectSaveEl.addEventListener("click", () => {
   const newProject = createProject();
@@ -33,6 +35,7 @@ projectSaveEl.addEventListener("click", () => {
   }
 });
 
+// Cancel button for project
 const projectCancelEl = document.getElementById("project-cancel");
 projectCancelEl.addEventListener("click", () => {
   switchButton();
@@ -55,17 +58,20 @@ asideEl.addEventListener("click", (e) => {
   }
 });
 
+// Switches the Add Task menu from button to form
 const addTaskEl = document.querySelector("#add-task-button");
 addTaskEl.addEventListener("click", () => {
   switchAddTask();
 });
 
+// Cancel returns back to the Add menu Button
 const taskCancelEl = document.querySelector("#cancel");
 taskCancelEl.addEventListener("click", (e) => {
   e.preventDefault();
   switchAddTask();
 });
 
+// Saves the current task
 const saveTaskEl = document.querySelector("#save");
 saveTaskEl.addEventListener("click", (e) => {
   e.preventDefault();
@@ -85,6 +91,7 @@ saveTaskEl.addEventListener("click", (e) => {
   loadMain(projects, name.textContent);
 });
 
+// Deals with the entirety of the tasks in task container
 const tasksContainer = document.querySelector(".task-container");
 tasksContainer.addEventListener("click", (e) => {
   if (e.target.alt === "Edit Task") {
@@ -97,5 +104,10 @@ tasksContainer.addEventListener("click", (e) => {
     const projectName = document.querySelector("#task-heading").textContent;
     deleteTask(projects, e.target.parentElement.getAttribute("index"));
     loadMain(projects, projectName);
+  }
+  if (e.target.className === "edit-cancel") {
+    e.preventDefault();
+    const name = document.querySelector("#task-heading");
+    loadMain(projects, name.textContent);
   }
 });

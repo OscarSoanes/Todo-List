@@ -204,11 +204,11 @@ main {
     padding: 0;
 }
 
-#save {
+#save, .edit-save {
     grid-column: span 2;
 }
 
-#cancel {
+#cancel, .edit-cancel {
     grid-column: 4 / 6;
 }
 
@@ -220,7 +220,7 @@ main {
     background: linear-gradient(to right, #69adb5,#69adb5 4px, white 4px);
 }
 
-#add-task-container > input, #add-task-container > select, #add-task-container > button {
+#add-task-container > input, #add-task-container > select, .add-task-container > button, .add-task-container > button {
     border: 1px solid black;
 }
 
@@ -240,4 +240,12 @@ main {
 
 #add-task-button > img {
     width: 1.5rem;
+}
+
+.edit-task-container {
+    grid-column: span 5;
+    display: grid;
+    gap: 0.5rem;
+    align-items: self-start;
+    grid-template-columns: max-content 1fr repeat(3, max-content);
 }
