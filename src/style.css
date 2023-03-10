@@ -30,9 +30,11 @@ header {
     font-weight: 700 !important;
     background-color: var(--header);
     padding: 1rem 1rem !important;
+    box-shadow: 0px 0px 2px 2px var(--header);
 }
 
 aside {
+    z-index: -1;
     background-color: var(--aside);
     padding: 1rem 0.5rem 1rem 1rem !important;
 }
@@ -156,9 +158,11 @@ main {
     align-items:self-start;
     grid-template-columns: max-content 1fr repeat(3, max-content);
     margin-bottom: 1rem;
+    box-shadow: 1px 1px 2px 0px var(--header);
 }
 
 .checkbox {
+    cursor: pointer;
     align-self: self-start;
     grid-row: span 2;
 }
@@ -180,9 +184,14 @@ main {
 }
 
 .task-element > img {
+    cursor: pointer;    
     width: 1rem;
 }
 
 .task-element > img:first-of-type {
     margin: 0 1rem;
+}
+
+.task-element > p:last-of-type {
+    grid-column: span 4;
 }
