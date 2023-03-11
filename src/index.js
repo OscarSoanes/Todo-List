@@ -21,7 +21,8 @@ import { saveData } from "./modules/app/saveToLocalAPI";
 import { loadProjects } from "./modules/app/loadProjects";
 
 let projects = loadProjects();
-
+updateSidebar(projects);
+getMain(projects);
 // Switches the add project button
 const addProjectEl = document.querySelector("#project-container");
 addProjectEl.addEventListener("click", () => switchButton());
@@ -55,7 +56,7 @@ asideEl.addEventListener("click", (e) => {
     resetAndEmptyTodo();
     if (element.childNodes.length === 5) {
       hideAddTaskButton();
-      getMain(projects, element.childNodes[3].textContent);
+      getMain(projects);
     } else {
       loadMain(projects, element.childNodes[1].textContent);
       showAddTaskButton();
