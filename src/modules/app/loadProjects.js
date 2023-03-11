@@ -4,6 +4,10 @@ import Todo from "../todo";
 export function loadProjects() {
   const data = JSON.parse(localStorage.getItem("projects"));
 
+  if (data === null) {
+    return [];
+  }
+
   let projects = [];
   data.forEach((project) => {
     const newProject = new Project(project.name);
