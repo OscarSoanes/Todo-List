@@ -249,3 +249,7 @@ main {
     align-items: self-start;
     grid-template-columns: max-content 1fr repeat(3, max-content);
 }
+
+.span-3 {
+    grid-column: span 3;
+}

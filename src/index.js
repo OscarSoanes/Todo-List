@@ -17,8 +17,10 @@ import { deleteTask } from "./modules/app/deleteTask";
 import { setAsForm } from "./modules/app/switchTaskEditorMode";
 import { updateTodo } from "./modules/app/editTask";
 import { updateCompleted } from "./modules/app/updateCompleted";
+import { saveData } from "./modules/app/saveToLocalAPI";
+import { loadProjects } from "./modules/app/loadProjects";
 
-let projects = [];
+let projects = loadProjects();
 
 // Switches the add project button
 const addProjectEl = document.querySelector("#project-container");
@@ -32,6 +34,7 @@ projectSaveEl.addEventListener("click", () => {
     projects.push(newProject);
     switchButton();
     updateSidebar(projects);
+    saveData(projects);
   } else {
     alert("Projects must have unique names!");
   }
@@ -93,11 +96,13 @@ saveTaskEl.addEventListener("click", (e) => {
   switchAddTask();
   const name = document.querySelector("#task-heading");
   loadMain(projects, name.textContent);
+  saveData(projects);
 });
 
 // Deals with the entirety of the tasks in task container
 const tasksContainer = document.querySelector(".task-container");
 tasksContainer.addEventListener("click", (e) => {
+  // Editing a task
   if (e.target.alt === "Edit Task") {
     const openedForms = document.querySelector(".edit-task-container");
     if (openedForms !== null) {
@@ -116,6 +121,7 @@ tasksContainer.addEventListener("click", (e) => {
     const projectName = document.querySelector("#task-heading").textContent;
     deleteTask(projects, e.target.parentElement.getAttribute("index"));
     loadMain(projects, projectName);
+    saveData(projects);
   }
 
   if (e.target.className === "edit-cancel") {
@@ -142,6 +148,7 @@ tasksContainer.addEventListener("click", (e) => {
     }
     const projectName = document.querySelector("#task-heading").textContent;
     loadMain(projects, projectName);
+    saveData(projects);
   }
 
   if (e.target.className === "checkbox") {
@@ -150,5 +157,6 @@ tasksContainer.addEventListener("click", (e) => {
       projects,
       e.target.checked
     );
+    saveData(projects);
   }
 });
