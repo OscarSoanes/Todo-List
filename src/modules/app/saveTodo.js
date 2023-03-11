@@ -8,8 +8,6 @@ export function saveTodo(projects) {
     return project.name === projectName;
   });
 
-  console.log(projectToUpdate);
-
   const todoTitle = document.querySelector("#text").value;
   if (!projectToUpdate.validateTodo(todoTitle)) {
     return "Error";

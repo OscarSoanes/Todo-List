@@ -5,7 +5,5 @@ export function deleteTask(projects, index) {
     return project.name === projectName.textContent;
   });
 
-  console.log(index);
   project.removeTodo(index);
-  console.log(project);
 }

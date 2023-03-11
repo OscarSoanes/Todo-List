@@ -21,6 +21,5 @@ export function loadProjects() {
     projects.push(newProject);
   });
 
-  console.log(projects);
   return projects;
 }
