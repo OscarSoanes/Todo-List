@@ -19,6 +19,7 @@ import { updateTodo } from "./modules/app/editTask";
 import { updateCompleted } from "./modules/app/updateCompleted";
 import { saveData } from "./modules/app/saveToLocalAPI";
 import { loadProjects } from "./modules/app/loadProjects";
+import { deleteProject } from "./modules/app/deleteProject";
 
 let projects = loadProjects();
 updateSidebar(projects);
@@ -50,6 +51,15 @@ projectCancelEl.addEventListener("click", () => {
 // Looks at everything on the Aside element, includes the Projects menu
 let asideEl = document.querySelector("aside");
 asideEl.addEventListener("click", (e) => {
+  if (e.target.className === "close-project") {
+    setAsSelected(asideEl.firstElementChild);
+    deleteProject(e.target.previousElementSibling.textContent, projects);
+    getMain(projects);
+    updateSidebar(projects);
+    saveData(projects);
+    return;
+  }
+
   const element = e.target.closest(".menu-option");
   if (element !== null) {
     setAsSelected(element);
